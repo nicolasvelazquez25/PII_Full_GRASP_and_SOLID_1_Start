@@ -11,6 +11,7 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Recipe
     {
+
         private ArrayList steps = new ArrayList();
 
         public Product FinalProduct { get; set; }
@@ -33,6 +34,16 @@ namespace Full_GRASP_And_SOLID.Library
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
+        }
+        // Agregado por Expert
+        public double GetProductionCost()
+        {
+            double result = 0;
+            foreach (Step step in this.steps)
+            {
+                result = result + step.GetStepCost();
+            }
+            return result;
         }
     }
 }
