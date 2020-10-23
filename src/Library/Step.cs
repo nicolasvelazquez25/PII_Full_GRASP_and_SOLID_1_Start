@@ -27,7 +27,7 @@ namespace Full_GRASP_And_SOLID.Library
         // Agregado por Expert
         public double GetStepCost()
         {    
-            return this.Input.UnitCost + (this.Equipment.HourlyCost * this.Time);
+            return (this.Input.UnitCost * this.Quantity) + (this.Equipment.HourlyCost * this.Time);
         }
     }
 }
