@@ -26,6 +26,14 @@ namespace Full_GRASP_And_SOLID.Library
             this.steps.Remove(step);
         }
 
+        /*
+
+        De esta manera es más fácil que la funcion PrintRecipe() utilice la misma funcion que creamos 
+        llamada GetProductionCost(), ya que de otra manera, si crearamos una clase Printer, esta debería
+        recibir el objeto para luego aplicarle las funciones que el mismo objeto ya conoce. 
+        Por esto consideramos que esta clase cumple con el patrón Expert
+
+        */
         public void PrintRecipe()
         {
             Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
@@ -34,6 +42,7 @@ namespace Full_GRASP_And_SOLID.Library
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
+            Console.WriteLine(this.GetProductionCost());
         }
         /*
 
